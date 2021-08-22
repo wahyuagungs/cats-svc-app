@@ -17,6 +17,10 @@ spec:
       - name: iwg-app
         image: ${REPOSITORY_TAG}
         imagePullPolicy: Never
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
 
 ---
 apiVersion: v1
