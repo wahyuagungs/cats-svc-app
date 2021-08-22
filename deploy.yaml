@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iwg-app
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      bb: iwg-app
+  template:
+    metadata:
+      labels:
+        bb: iwg-app
+    spec:
+      containers:
+      - name: iwg-app
+        image: ${REPOSITORY_TAG}
+        imagePullPolicy: Never
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iwg-app-service
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    bb: iwg-app
+  ports:
+  - port: 5000
+    targetPort: 5000
