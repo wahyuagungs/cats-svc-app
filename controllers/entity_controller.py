@@ -30,4 +30,11 @@ def get_entity_by_name():
     data = Counterpart.query.filter(Counterpart.entity_name.ilike(search)).all()
     return [d.as_dict() for d in data]
 
+@entity_controller.rout('/api/entity/about')
+@wrapper
+def get_about():
+   d = dict()
+   d['status'] = 1
+   d['message'] = 'Alright'
+   return d
 
