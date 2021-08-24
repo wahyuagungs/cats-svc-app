@@ -43,13 +43,12 @@ def get_module_by_name():
     modules = Module.query.filter(Module.name.ilike(search)).all()
     return [d.as_dict() for d in modules]
 
+
 @module_controller.route('/api/module/about')
 @wrapper
 def get_about():
-   d = {}
-   d['status'] = 1
-   d['message'] = 'success'
-   return d
+    d = {'status': 1, 'message': 'success'}
+    return d
 
 
 
