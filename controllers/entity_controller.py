@@ -34,7 +34,7 @@ def get_entity_by_name():
 @wrapper
 def get_about():
    d = dict()
-   d['status'] = 1
-   d['message'] = 'Alright'
+   d['status'] = 0
+   d['message'] = 'Failed'
    return d
 
